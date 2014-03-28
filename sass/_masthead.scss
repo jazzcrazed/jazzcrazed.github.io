@@ -1,0 +1,33 @@
+/* =============================================================================
+   Masthead
+   ========================================================================== */
+
+$logotypeSize: 500%;
+
+body > header {
+  > h1, > h2 {
+    display: inline-block;
+    margin: 0;
+    padding-right: 20px;
+    vertical-align: baseline;
+    /*white-space: nowrap;*/
+  }
+
+  > h1 {
+    @extend .audimat;
+    font-size: $logotypeSize;
+    letter-spacing: -.04em;
+    text-transform: lowercase;
+
+    a {
+      @extend .blockCutType;
+      color: #eee;
+    }
+  }
+  > h2 {
+    font: {
+      size: 175%;
+      style: oblique;
+    }
+  }
+}

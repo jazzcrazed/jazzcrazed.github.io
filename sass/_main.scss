@@ -1,0 +1,50 @@
+/* =============================================================================
+   Main
+   ========================================================================== */
+
+* {
+  @include box-sizing(border-box);
+  background-repeat: no-repeat;
+  position: relative;
+}
+
+html, body {
+  min-height: 100%
+}
+
+body {
+  background-color: #dddad0;
+  @include background-image(radial-gradient(14em 7em, ellipse farthest-corner, #dddad0 0%, #d9d6d0  100%));
+  color: $copyColor;
+  padding: 1em 0 0;
+  @include text-shadow(1px 1px 0 rgba(white, .8));
+}
+
+code {
+  color: $lightCopyColor + 25;
+  font-weight: bold;
+}
+
+pre {
+  @extend .pullQuote;
+  color: goldenrod;
+  padding-top: 1em;
+  text-shadow: none;
+
+  &.limitHeight {
+    height: 15em;
+    overflow: scroll;
+  }
+
+  u, b, em, i {
+    color: #daa520 + 50;
+  }
+}
+
+.pagination {
+  margin: 1em 0;
+}
+
+.page_number {
+  vertical-align: middle;
+}

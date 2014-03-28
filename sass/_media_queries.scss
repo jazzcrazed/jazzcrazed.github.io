@@ -1,0 +1,62 @@
+/* ==|== media queries ====================================================== */
+
+@media only screen and (max-width: 26em) {
+  body > header {
+    > h1 { font-size: 350%; }
+    > h2 { font-size: 120%; }
+  }
+}
+@media only screen and (max-width: 35em) {
+  figure, .postImage {
+    &, &.right {
+      float: none;
+      text-align: center;
+    }
+
+    &, &.fullWidth {
+      margin: {
+        left: -1em;
+        right: -1em;
+      }
+      max-width: none;
+    }
+
+    img, .img { border-radius: 0; }
+
+    .boxshadow & { padding: 0; }
+  }
+
+  .curledShadow {
+    &:after, &:before { display: none; }
+  }
+}
+@media only screen and (max-width: 45em) {
+  body {
+    > header,
+    .postContent,
+    .postPreview,
+    .contentContainer,
+    #recentTweets,
+    #disqus_thread {
+      padding: {
+        left: 1em;
+        right: 1em;
+      }
+    }
+  }
+}
+@media only screen and (min-width: 50em) {
+  body {
+    font-size: 1.3em;
+
+    > header,
+    .postContent,
+    .postPreview,
+    .contentContainer,
+    #recentTweets,
+    #disqus_thread {
+      margin: 0 auto;
+      max-width: 43em;
+    }
+  }
+}

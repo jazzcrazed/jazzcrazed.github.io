@@ -1,0 +1,81 @@
+/* =============================================================================
+   Posts
+   ========================================================================== */
+
+.postPreview {
+  @extend .bottomSeparator;
+
+  > h1 {
+    line-height: 1.1em;
+
+    a:before {
+      content: '☙';
+      display: none;
+      font-family: sans-serif;
+    }
+  }
+}
+
+.post {
+  a { font-weight: bold; }
+  h1 {
+    @extend .deeplyEngravedType;
+    margin-bottom: .2em;
+  }
+  h2 { color: $lightCopyColor + 15; }
+}
+
+.postMeta {
+  clear: both;
+  font: {
+    size: 65%;
+    style: italic;
+  }
+
+  strong, a:link {
+    font: {
+      style: normal;
+      weight: normal;
+    }
+    text-transform: uppercase;
+  }
+}
+
+.tags {
+  display: inline;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+
+  > li {
+    display: inline;
+    padding: 0;
+    &:after { content: ','; }
+
+    &:last-child {
+      &:before { content: ' and '; }
+      &:after { content: '.'; }
+    }
+
+    &:first-child {
+      &:before { content: ''; }
+    }
+  }
+}
+
+.comments {
+  background-color: rgba(black,.1);
+  @include box-shadow(inset 0 0 5px rgba(black,.2));
+  clear: both;
+  margin-top: 1em;
+  padding-top: 1em;
+
+  a { @extend .blockCutType; }
+}
+
+aside {
+  @extend .pullQuote;
+  float: right;
+  margin: 0 -1em 0 .5em;
+  width: 10em;
+}

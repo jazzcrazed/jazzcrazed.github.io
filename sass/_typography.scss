@@ -1,0 +1,137 @@
+/* =============================================================================
+   Typography
+   ========================================================================== */
+@import "font_icons";
+
+@font-face {
+  font-family: 'Afta Serif';
+  src: url('fonts/AftaSerifThin-Italic-webfont.eot');
+  src: url('fonts/AftaSerifThin-Italic-webfont.eot?#iefix') format('embedded-opentype'),
+       url('fonts/AftaSerifThin-Italic-webfont.woff') format('woff'),
+       url('fonts/AftaSerifThin-Italic-webfont.ttf') format('truetype'),
+       url('fonts/AftaSerifThin-Italic-webfont.svg#AftaSerifItalic') format('svg');
+  font-weight: normal;
+  font-style: italic, oblique;
+}
+
+@font-face {
+  font-family: 'Afta Serif';
+  src: url('fonts/AftaSerifThin-Regular-webfont.eot');
+  src: url('fonts/AftaSerifThin-Regular-webfont.eot?#iefix') format('embedded-opentype'),
+       url('fonts/AftaSerifThin-Regular-webfont.woff') format('woff'),
+       url('fonts/AftaSerifThin-Regular-webfont.ttf') format('truetype'),
+       url('fonts/AftaSerifThin-Regular-webfont.svg#AftaSerifRegular') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Yanone Kaffeesatz';
+  src: url('fonts/YanoneKaffeesatz-Regular-webfont.eot');
+  src: url('fonts/YanoneKaffeesatz-Regular-webfont.eot?#iefix') format('embedded-opentype'),
+       url('fonts/YanoneKaffeesatz-Regular-webfont.woff') format('woff'),
+       url('fonts/YanoneKaffeesatz-Regular-webfont.ttf') format('truetype'),
+       url('fonts/YanoneKaffeesatz-Regular-webfont.svg#yanonekaffeesatzregular') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'audimat';
+  src: url('fonts/audimat-regular-webfont.eot');
+  src: url('fonts/audimat-regular-webfont.eot?#iefix') format('embedded-opentype'),
+       url('fonts/audimat-regular-webfont.woff') format('woff'),
+       url('fonts/audimat-regular-webfont.ttf') format('truetype'),
+       url('fonts/audimat-regular-webfont.svg#AUdimatRegular') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+.audimat {
+  font-family: audimat;
+}
+
+.sansSerif { font-family: 'Yanone Kaffeesatz'; }
+
+body,
+.copyFont,
+.serif {
+  font: {
+    family: 'Afta Serif';
+  }
+  text-transform: none;
+}
+
+h1, h2, h3 {
+  @extend .sansSerif;
+  font-weight: normal;
+  line-height: 1.1;
+  margin: .5em 0;
+}
+
+h1 { font-size: 400%; }
+h2 { font-size: 300%; }
+h3 { font-size: 200%; }
+
+p, ul, ol, dl { line-height: 1.8em; }
+
+dt {
+  @extend h3;
+  margin-bottom: 0;
+}
+
+p, li { margin: 0 0 1em; }
+
+dd { margin-bottom: 1em; }
+
+.centeredCopy {
+  @extend .sansSerif;
+  a { @extend .blockCutType; }
+  text-align: center;
+}
+
+.pullQuote {
+  @extend .pullQuoteBG;
+  @include border-radius(.5em);
+  @include box-shadow(inset 0 0 10px black);
+  padding: 1em;
+}
+
+.quotation {
+  border: {
+    width: 0 0 0 10px;
+    style: solid;
+    color: rgba(black,.25);
+  }
+  color: $darkCopyColor;
+  @extend .sansSerif;
+  padding-left: .5em;
+
+  &.right, &.left {
+    margin-top: 0;
+    width: 40%;
+  }
+
+  $space: 4%;
+
+  &.left {
+    border: {
+      left-width: 0;
+      right-width: 10px;
+    }
+    margin-right: $space;
+    padding: {
+      left: 0;
+      right: $space / 2;
+    }
+  }
+  &.right {
+    margin-left: $space;
+    padding: {
+      left: $space / 2;
+      right: 0;
+    }
+  }
+
+  &.big{ @extend h3; }
+}

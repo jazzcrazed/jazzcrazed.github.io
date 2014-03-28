@@ -1,0 +1,86 @@
+/* =============================================================================
+   Layout
+   ========================================================================== */
+
+$universalSpacing: 1em;
+
+@import "flexbox";
+
+.box1, .box2 {
+  float: left;
+  padding: {
+    right: $universalSpacing;
+    bottom: $universalSpacing;
+  }
+
+  &.right {
+    padding: {
+      left: $universalSpacing;
+      right: 0;
+    }
+  }
+}
+.box1 { width: 25%; }
+.box2 {
+  width: 50%;
+  z-index: 1;
+}
+
+.clearfix { overflow: hidden; }
+
+.middleSeparator {
+  overflow: hidden;
+  &:after {
+    border-right: 1px solid rgba(0,0,0,.15);
+    @include box-shadow(1px 0 0 rgba(255,255,255,.5));
+    content: '';
+    display: block;
+    position: absolute;
+    top: 0; bottom: 0;
+    width: 50%;
+  }
+}
+
+.topSeparator {
+  border-top: 1px solid rgba(255,255,255,.5);
+  @include box-shadow(0 -1px 0 rgba(0,0,0,.15));
+  margin-top: 1em;
+}
+
+.bottomSeparator {
+  border-bottom: 1px solid rgba(0,0,0,.15);
+  @include box-shadow(0 1px 0 rgba(255,255,255,.5));
+  margin-top: 1em;
+  padding-bottom: 1em;
+}
+
+.row { overflow: hidden; }
+
+%column {
+  margin: {
+    left: 0;
+    right: 1%;
+  }
+
+  &:last-child {
+    float: right;
+    margin-right: 0;
+  }
+}
+.halfColumn {
+  @extend %column;
+  margin-right: 0;
+  width: 49%;
+}
+.thirdColumn {
+  @extend %column;
+  width: 32.66%;
+}
+.quarterColumn {
+  @extend %column;
+  width: 24.25%
+}
+.fifthColumn {
+  @extend %column;
+  width: 19.2%
+}

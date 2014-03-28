@@ -1,0 +1,20 @@
+#minefold-logo {
+  display: inline-block;
+  vertical-align: -1.3em;
+  .logo-face-dark {
+    @include transition(all .2s);
+    fill: #0a66ae;
+  }
+  .logo-face-light {
+    @include transition(all .2s);
+    fill: #1087e1;
+  }
+
+  &:hover {
+    .logo-face-dark { fill: #0a66ae + 100; }
+    .logo-face-light { fill: #1087e1 + 100; }
+  }
+}
+
+.svg .svgAlt,
+.no-svg svg { display: none; }

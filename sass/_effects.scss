@@ -1,0 +1,85 @@
+/* =============================================================================
+   Effects
+   ========================================================================== */
+.blockCutType {
+  @include blockCutType;
+  &:hover,
+  &.red  { @include blockCutType($redColor, #700, #f00); }
+}
+
+.blockCutType:active,
+.deeplyEngravedType {
+  &, &.red {
+    @include text-shadow(
+      -1px -1px 1px rgba(0, 0, 0, 0.9),
+      1px 1px 1px rgba(255, 255, 255, 0.8)
+    );
+  }
+}
+
+.deeplyEngravedType {
+  color: $copyColor;
+}
+
+.embossedType {
+  @include text-shadow(-1px -1px 2px rgba(255, 255, 255, .5), 1px 1px 2px rgba(0, 0, 0, .5));
+
+  a:hover {
+    @include text-shadow(-2px -2px 2px rgba(0, 0, 0, .5));
+  }
+}
+
+@mixin colorframes {
+  10% { color: $redColor; }
+  52% { color: red; }
+  84% { color: violet; }
+}
+
+@-webkit-keyframes beating {
+  10%, 40% { -webkit-transform: scale(1.15); }
+  20%, 30%, 50% { -webkit-transform: scale(1); }
+}
+
+@-webkit-keyframes color-shift { @include colorframes }
+
+@-moz-keyframes beating {
+  10%, 40% { -moz-transform: scale(1.15); }
+  20%, 30%, 50% { -moz-transform: scale(1); }
+}
+
+@-moz-keyframes color-shift { @include colorframes }
+
+@-ms-keyframes beating {
+  10%, 40% { -ms-transform: scale(1.15); }
+  20%, 30%, 50% { -ms-transform: scale(1); }
+}
+
+@-ms-keyframes color-shift { @include colorframes }
+
+@-o-keyframes beating {
+  10%, 40% { -o-transform: scale(1.15); }
+  20%, 30%, 50% { -o-transform: scale(1); }
+}
+
+@-o-keyframes color-shift { @include colorframes }
+
+.heart {
+  color: orange;
+  cursor: pointer;
+  display: inline-block;
+  font: {
+    family: serif;
+    style: normal;
+  }
+  letter-spacing: -.1em;
+  -webkit-animation: color-shift 45s infinite;
+
+  @include scale(1);
+  &:hover {
+    color: white;
+    -webkit-animation: beating 1.2s infinite;
+    -moz-animation: beating 1.2s infinite;
+    -ms-animation: beating 1.2s infinite;
+    -o-animation: beating 1.2s infinite;
+  }
+}
