@@ -9,9 +9,9 @@ I know now that it takes an inordinate amount of effort for me to consistently u
 
 ## What is and why Wintersmith?
 
-For a long time, I'd been considering migrating to [Middleman](http://www.middlemanapp.com) because I'd been enjoying it so much more often than Jekyll for a variety of projects.
+For a long time, I'd been considering migrating to [Middleman](http://www.middlemanapp.com) because I'd been enjoying it much more often than Jekyll for a variety of projects.
 
-But then a year passed, during which I've been a full-stack Rails developer (yes, I got a new job...one of those "things" I promise to get to later), and I figured I ought to try something completely new. Entre Wintersmith: a fairly mature [Node.js](http://nodejs.org)-based generator that I picked out of several alternatives mostly because it seemed relatively easy for it to accommodate the many customizations I had done in my Jekyll blog. It'd be only the second time I've done a project almost entirely in JS (the first having been done within the last month, as well). The whole of front-end development had changed around me with JavaScript at its center while I tooled around day after day following [Railscast tutorials](http://railscasts.com), so there was a lot for me to learn -- including using npm, Grunt.js, and Node in general.
+But then a year passed, during which I've been a full-stack Rails developer (yes, I got a new job...one of those "things" I promise to get to later), and I figured I ought to try something completely new. Entre Wintersmith: a fairly mature [Node.js](http://nodejs.org)-based generator that I picked out of several alternatives mostly because it seemed relatively easy for it to accommodate the many customizations I had done in my Jekyll blog. The whole of front-end development had changed around me with JavaScript at its center while I tooled around day after day following [Railscast tutorials](http://railscasts.com), so there was a lot for me to learn -- including using npm, Grunt.js, and Node in general.
 
 Migrating from Jekyll to Wintersmith was not completely straightforward, thanks to the aforementioned customizations. But the basics are a cinch, starting with...
 
@@ -56,7 +56,7 @@ And that is the five-minutes-to-blogging process that is the Wintersmith install
 
 ## Migrating my posts
 
-So there are many ways to skin the cat of moving my Jekyll posts over, with the simplest being to rename them all to `index.md` and copying them each to unique subfolders underneath `contents/articles`.
+There are many ways to skin the cat of moving my Jekyll posts over, with the simplest being to rename them all to `index.md` and copy them each to unique subfolders underneath `contents/articles`.
 
 This didn't sit completely well with me, and it's not because it's a little annoying to create a new subfolder for each post -- I could easily make a script or task to one-line that piece every time (like `rake post <title>` in my Jekyll blog).
 
@@ -150,6 +150,6 @@ Unfortunately, there's many reasons yet for me to inconveniently edit them all, 
 
 At this point, I have a working Wintersmith blog with all of the posts of my old Jekyll one, accessible at the same urls as the original. If I wanted, I could just run `$ wintersmith build`, take the resulting output of `/build/*` and replace my repo with its contents, push up to `master` and be done.
 
-But as much as I actually really like the default templates that come with Wintersmith -- in many ways, I prefer them to my own -- I wasn't prepared to get rid of my old design, if only to give me an excuse to dig in even deeper into using Wintersmith and a Node-driven blog.
+But as much as I actually really like the default templates that come with Wintersmith -- in many ways, I prefer them to my own -- I wasn't prepared to get rid of my old design. If nothing else, it gives me an excuse to dig in even deeper into using Wintersmith and a Node-driven blog.
 
 So in my next post, I'll go a layer up and talk about migrating my Jekyll blog's layout templates and stylesheets, which comes with the added bonus of setting up [Compass](http://compass-style.org) -- not a default part of Wintersmith.
