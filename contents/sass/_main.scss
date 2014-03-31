@@ -20,27 +20,6 @@ body {
   @include text-shadow(1px 1px 0 rgba(white, .8));
 }
 
-code {
-  color: $lightCopyColor + 25;
-  font-weight: bold;
-}
-
-pre {
-  @extend .pullQuote;
-  color: goldenrod;
-  padding-top: 1em;
-  text-shadow: none;
-
-  &.limitHeight {
-    height: 15em;
-    overflow: scroll;
-  }
-
-  u, b, em, i {
-    color: #daa520 + 50;
-  }
-}
-
 .pagination {
   margin: 1em 0;
 }
