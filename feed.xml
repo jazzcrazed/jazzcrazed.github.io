@@ -5,9 +5,114 @@
     <atom:link href="http://marcocarag.com/feed.xml" rel="self" type="application/rss+xml"></atom:link>
     <link>http://marcocarag.com</link>
     <description>Marco Carag's blog about stuff he's into.</description>
-    <pubDate>Wed, 22 May 2013 22:08:00 -0400</pubDate>
+    <pubDate>Sun, 30 Mar 2014 19:08:00 -0400</pubDate>
     <generator>Wintersmith - https://github.com/jnordberg/wintersmith</generator>
     <language>en</language>
+    <item>
+      <title>Migrating my Blog's Content to Wintersmith</title>
+      <link>http://marcocarag.com/2014/03/30/migrating-my-blog-s-content-to-wintersmith/</link>
+      <pubDate>Sun, 30 Mar 2014 19:08:00 -0400</pubDate>
+      <guid isPermaLink="true">http://marcocarag.com/2014/03/30/migrating-my-blog-s-content-to-wintersmith/</guid>
+      <author></author>
+      <description>&lt;p&gt;I know now that it takes an inordinate amount of effort for me to consistently update this blog. It’s not for want of content, but rather a problem of editing. To jump-start my stalled blogging in a sort of meta way, I’ve decided to migrate my blog from tried-and-true &lt;a href=&quot;http://jekyllrb.com/&quot;&gt;Jekyll&lt;/a&gt; to Node.js-based &lt;a href=&quot;http://wintersmith.io/&quot;&gt;Wintersmith&lt;/a&gt;. Because what’s better to blog about than the blog itself? (The answer’s “a lot of things,” and I promise to get to those later, but this’ll be interesting, too.)&lt;/p&gt;
+&lt;p&gt;&lt;span class=&quot;more&quot;&gt;&lt;/span&gt;&lt;/p&gt;
+&lt;h2 id=&quot;what-is-and-why-wintersmith-&quot;&gt;What is and why Wintersmith?&lt;/h2&gt;
+&lt;p&gt;For a long time, I’d been considering migrating to &lt;a href=&quot;http://www.middlemanapp.com/&quot;&gt;Middleman&lt;/a&gt; because I’d been enjoying it so much more often than Jekyll for a variety of projects.&lt;/p&gt;
+&lt;p&gt;But then a year passed, during which I’ve been a full-stack Rails developer (yes, I got a new job…one of those “things” I promise to get to later), and I figured I ought to try something completely new. Entre Wintersmith: a fairly mature &lt;a href=&quot;http://nodejs.org/&quot;&gt;Node.js&lt;/a&gt;-based generator that I picked out of several alternatives mostly because it seemed relatively easy for it to accommodate the many customizations I had done in my Jekyll blog. It’d be only the second time I’ve done a project almost entirely in JS (the first having been done within the last month, as well). The whole of front-end development had changed around me with JavaScript at its center while I tooled around day after day following &lt;a href=&quot;http://railscasts.com/&quot;&gt;Railscast tutorials&lt;/a&gt;, so there was a lot for me to learn — including using npm, Grunt.js, and Node in general.&lt;/p&gt;
+&lt;p&gt;Migrating from Jekyll to Wintersmith was not completely straightforward, thanks to the aforementioned customizations. But the basics are a cinch, starting with…&lt;/p&gt;
+&lt;h2 id=&quot;installing-wintersmith&quot;&gt;Installing Wintersmith&lt;/h2&gt;
+&lt;p&gt;This was the easy part — and I’m going to skip over the installation of Node.js, because in my case it already was installed (thanks to Rails).&lt;/p&gt;
+&lt;p&gt;The &lt;a href=&quot;https://github.com/jnordberg/wintersmith&quot;&gt;Wintersmith docs&lt;/a&gt; cover this effort pretty well:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;$ npm install wintersmith -g
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;Then I made a folder for my new blog, and initialized Wintersmith inside of it:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;$ mkdir marcocarag.com
+$ wintersmith new marcocarag.com
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;After that, I can start a preview server:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;$ cd marcocarag.com
+$ wintersmith preview
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;And my new blog can be browsed at &lt;a href=&quot;http://localhost:8080&quot;&gt;http://localhost:8080&lt;/a&gt;. Wintersmith comes with a few demo templates, located under &lt;code&gt;/templates&lt;/code&gt;, and posts, each located in their own semantically named subdirectory under &lt;code&gt;contents/articles&lt;/code&gt; with an &lt;code&gt;index.md&lt;/code&gt; Markdown file inside. Adding a new post is a simple matter of creating another subdirectory under &lt;code&gt;articles&lt;/code&gt; with its own &lt;code&gt;index.md&lt;/code&gt; file.&lt;/p&gt;
+&lt;p&gt;Wintersmith’s operation is centered around &lt;code&gt;config.json&lt;/code&gt; in the root of its install, which — similar to Jekyll’s own config — contains parameters that are important to the blog. Specifically, a &lt;code&gt;locals&lt;/code&gt; object right up top that needs to be customized for my purposes:&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;lang-javascript&quot;&gt;locals: {
+  name: &lt;span class=&quot;string&quot;&gt;&quot;MarcoCarag.com&quot;&lt;/span&gt;,
+  owner: &lt;span class=&quot;string&quot;&gt;&quot;Marco Carag&quot;&lt;/span&gt;,
+  description: &lt;span class=&quot;string&quot;&gt;&quot;Marco Carag's blog about stuff he's into.&quot;&lt;/span&gt;,
+  tagline: &lt;span class=&quot;string&quot;&gt;&quot;Expert ♥er of things&quot;&lt;/span&gt;
+}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;And that is the five-minutes-to-blogging process that is the Wintersmith install.&lt;/p&gt;
+&lt;h2 id=&quot;migrating-my-posts&quot;&gt;Migrating my posts&lt;/h2&gt;
+&lt;p&gt;So there are many ways to skin the cat of moving my Jekyll posts over, with the simplest being to rename them all to &lt;code&gt;index.md&lt;/code&gt; and copying them each to unique subfolders underneath &lt;code&gt;contents/articles&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;This didn’t sit completely well with me, and it’s not because it’s a little annoying to create a new subfolder for each post — I could easily make a script or task to one-line that piece every time (like &lt;code&gt;rake post &amp;lt;title&amp;gt;&lt;/code&gt; in my Jekyll blog).&lt;/p&gt;
+&lt;p&gt;It was more because if I were to change how post files are organized, I’m not sure that I’d want it to be the Wintersmith default way. Seeing all of the post files with date and titles in one place just seemed more convenient. Also, if I could get it to work in Wintersmith, it’d mean I could copy my posts nearly intact from &lt;code&gt;_posts&lt;/code&gt; in Jekyll to &lt;code&gt;contents/articles&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;Fortunately, I didn’t have to figure it out… A fellow by the name of &lt;a href=&quot;http://www.andrewphilipclark.com/&quot;&gt;Andrew Clark&lt;/a&gt; (who’s own Wintersmith blog I leaned on heavily during this migration) modified Wintersmith to scrape a single folder for uniquely named Markdown files — exactly as I wanted. The key was in Wintersmith’s &lt;code&gt;plugin/paginator.coffee&lt;/code&gt;; specifically, this bit:&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;lang-coffeescript&quot;&gt;&lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;title&quot;&gt;getArticles&lt;/span&gt; = &lt;span class=&quot;params&quot;&gt;(contents)&lt;/span&gt; -&amp;gt;&lt;/span&gt;
+  &lt;span class=&quot;comment&quot;&gt;# helper that returns a list of articles found in *contents*&lt;/span&gt;
+  &lt;span class=&quot;comment&quot;&gt;# note that each article is assumed to have its own directory in the articles directory&lt;/span&gt;
+  articles = contents[options.articles]._.directories.map &lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;params&quot;&gt;(item)&lt;/span&gt; -&amp;gt;&lt;/span&gt; item.index
+  articles.sort &lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;params&quot;&gt;(a, b)&lt;/span&gt; -&amp;gt;&lt;/span&gt; b.date - a.date
+  &lt;span class=&quot;keyword&quot;&gt;return&lt;/span&gt; articles
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Which Andrew turned into this:&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;lang-coffeescript&quot;&gt;&lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;title&quot;&gt;getArticles&lt;/span&gt; = &lt;span class=&quot;params&quot;&gt;(contents)&lt;/span&gt; -&amp;gt;&lt;/span&gt;
+  &lt;span class=&quot;comment&quot;&gt;# helper that returns a list of articles found in *contents*&lt;/span&gt;
+  articles = []
+  &lt;span class=&quot;keyword&quot;&gt;for&lt;/span&gt; key, value &lt;span class=&quot;keyword&quot;&gt;of&lt;/span&gt; contents[options.articles]
+    articles.push value &lt;span class=&quot;keyword&quot;&gt;if&lt;/span&gt; value &lt;span class=&quot;keyword&quot;&gt;instanceof&lt;/span&gt; env.plugins.Page
+
+  articles.sort &lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;params&quot;&gt;(a, b)&lt;/span&gt; -&amp;gt;&lt;/span&gt; b.date - a.date
+  &lt;span class=&quot;keyword&quot;&gt;return&lt;/span&gt; articles
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;…leveraging the filename instead of the directory names to create an array of &lt;code&gt;articles&lt;/code&gt; (which are actually &lt;code&gt;pages&lt;/code&gt;, which are actually my posts). And with that, I could literally copy all of my post files from &lt;code&gt;_posts/&lt;/code&gt; to &lt;code&gt;contents/articles&lt;/code&gt;.&lt;/p&gt;
+&lt;h2 id=&quot;changing-permalinks&quot;&gt;Changing Permalinks&lt;/h2&gt;
+&lt;p&gt;Wintersmith posts and pages by default get urls like &lt;code&gt;/this-is-my-post-title/index.html&lt;/code&gt;, thanks to the one-for-one mapping of the subfolders under &lt;code&gt;contents/articles&lt;/code&gt;. For my purposes, though, I need to reproduce the date and title-based permalinks of my Jekyll blog.&lt;/p&gt;
+&lt;p&gt;Custom permalinks in Wintersmith are made possible via a &lt;a href=&quot;http://jekyllrb.com/docs/frontmatter/&quot;&gt;front-matter&lt;/a&gt; property called &lt;code&gt;filename&lt;/code&gt;, which instructs Wintersmith how to output the compiled HTML:&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;lang-python&quot;&gt;&lt;span class=&quot;comment&quot;&gt;# To yield a permalink of /2014/03/30/heres-my-post/index.html&lt;/span&gt;
+filename: &lt;span class=&quot;string&quot;&gt;&quot;/:year/:month/:day/:title/index.html&quot;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;That’s good enough to reproduce the urls I want. But it kinda’ sucks to have to repeat it in every post. &lt;a href=&quot;http://www.andrewphilipclark.com/&quot;&gt;Andrew Clark&lt;/a&gt; to the rescue again. His post, &lt;a href=&quot;http://andrewphilipclark.com/2013/11/08/removing-the-boilerplate-from-wintersmith-blog-posts/&quot;&gt;How to remove the boilerplate from Wintersmith blog posts&lt;/a&gt;, was actually how I found his ever-helpful blog in the first place.&lt;/p&gt;
+&lt;p&gt;In that post, he outlines a &lt;a href=&quot;https://github.com/acdlite/andrewphilipclark.com/blob/master/plugins/blog.coffee&quot;&gt;plugin&lt;/a&gt; that he wrote which enables a Wintersmith blog to set global &lt;code&gt;filename&lt;/code&gt; values, as well as templates:&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;lang-coffeescript&quot;&gt;&lt;span class=&quot;comment&quot;&gt;# plugins/blog.coffee&lt;/span&gt;
+&lt;span class=&quot;built_in&quot;&gt;module&lt;/span&gt;.&lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;title&quot;&gt;exports&lt;/span&gt; = &lt;span class=&quot;params&quot;&gt;(env, callback)&lt;/span&gt; -&amp;gt;&lt;/span&gt;
+
+  defaults =
+    &lt;span class=&quot;attribute&quot;&gt;postsDir&lt;/span&gt;: &lt;span class=&quot;string&quot;&gt;'articles'&lt;/span&gt; &lt;span class=&quot;comment&quot;&gt;# directory containing blog posts&lt;/span&gt;
+    &lt;span class=&quot;attribute&quot;&gt;template&lt;/span&gt;: &lt;span class=&quot;string&quot;&gt;'post.jade'&lt;/span&gt;
+    &lt;span class=&quot;attribute&quot;&gt;filenameTemplate&lt;/span&gt;: &lt;span class=&quot;string&quot;&gt;'/:year/:month/:day/:title/index.html'&lt;/span&gt; &lt;span class=&quot;comment&quot;&gt;# Here's the magic part&lt;/span&gt;
+
+  &lt;span class=&quot;comment&quot;&gt;# assign defaults for any option not set in the config file&lt;/span&gt;
+  options = env.config.blog &lt;span class=&quot;keyword&quot;&gt;or&lt;/span&gt; {}
+  &lt;span class=&quot;keyword&quot;&gt;for&lt;/span&gt; key, value &lt;span class=&quot;keyword&quot;&gt;of&lt;/span&gt; defaults
+    options[key] ?= defaults[key]
+
+  &lt;span class=&quot;class&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;BlogpostPage&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;extends&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;env&lt;/span&gt;.&lt;span class=&quot;title&quot;&gt;plugins&lt;/span&gt;.&lt;span class=&quot;title&quot;&gt;MarkdownPage&lt;/span&gt;&lt;/span&gt;
+    &lt;span class=&quot;comment&quot;&gt;### DRYer subclass of MarkdownPage ###&lt;/span&gt;
+
+    &lt;span class=&quot;attribute&quot;&gt;getTemplate&lt;/span&gt;:&lt;span class=&quot;function&quot;&gt; -&amp;gt;&lt;/span&gt;
+      &lt;span class=&quot;property&quot;&gt;@metadata&lt;/span&gt;.template &lt;span class=&quot;keyword&quot;&gt;or&lt;/span&gt; options.template &lt;span class=&quot;keyword&quot;&gt;or&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;super&lt;/span&gt;()
+
+    &lt;span class=&quot;attribute&quot;&gt;getFilenameTemplate&lt;/span&gt;:&lt;span class=&quot;function&quot;&gt; -&amp;gt;&lt;/span&gt;
+      &lt;span class=&quot;property&quot;&gt;@metadata&lt;/span&gt;.filenameTemplate &lt;span class=&quot;keyword&quot;&gt;or&lt;/span&gt; options.filenameTemplate &lt;span class=&quot;keyword&quot;&gt;or&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;super&lt;/span&gt;()
+
+  &lt;span class=&quot;comment&quot;&gt;# register the plugin&lt;/span&gt;
+  prefix = &lt;span class=&quot;keyword&quot;&gt;if&lt;/span&gt; options.postsDir &lt;span class=&quot;keyword&quot;&gt;then&lt;/span&gt; options.postsDir + &lt;span class=&quot;string&quot;&gt;'/'&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;else&lt;/span&gt; &lt;span class=&quot;string&quot;&gt;''&lt;/span&gt;
+  env.registerContentPlugin &lt;span class=&quot;string&quot;&gt;'posts'&lt;/span&gt;, prefix + &lt;span class=&quot;string&quot;&gt;'**/*.*(markdown|mkd|md)'&lt;/span&gt;, BlogpostPage
+
+  &lt;span class=&quot;comment&quot;&gt;# done!&lt;/span&gt;
+  callback()
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Saving that to &lt;code&gt;plugins/blog.coffee&lt;/code&gt; and including it in my Wintersmith blog by adding this snippet to &lt;code&gt;config.json&lt;/code&gt;:&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;lang-javascript&quot;&gt;plugins: [
+  &lt;span class=&quot;string&quot;&gt;&quot;./plugins/blog.coffee&quot;&lt;/span&gt;
+]
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;…saved me the effort of having to add &lt;code&gt;filename&lt;/code&gt; to every one of my posts.&lt;/p&gt;
+&lt;p&gt;Unfortunately, there’s many reasons yet for me to inconveniently edit them all, as we’ll see in subsequent posts.&lt;/p&gt;
+&lt;h2 id=&quot;up-next-templates-and-styles&quot;&gt;Up next: Templates and Styles&lt;/h2&gt;
+&lt;p&gt;At this point, I have a working Wintersmith blog with all of the posts of my old Jekyll one, accessible at the same urls as the original. If I wanted, I could just run &lt;code&gt;$ wintersmith build&lt;/code&gt;, take the resulting output of &lt;code&gt;/build/*&lt;/code&gt; and replace my repo with its contents, push up to &lt;code&gt;master&lt;/code&gt; and be done.&lt;/p&gt;
+&lt;p&gt;But as much as I actually really like the default templates that come with Wintersmith — in many ways, I prefer them to my own — I wasn’t prepared to get rid of my old design, if only to give me an excuse to dig in even deeper into using Wintersmith and a Node-driven blog.&lt;/p&gt;
+&lt;p&gt;So in my next post, I’ll go a layer up and talk about migrating my Jekyll blog’s layout templates and stylesheets, which comes with the added bonus of setting up &lt;a href=&quot;http://compass-style.org/&quot;&gt;Compass&lt;/a&gt; — not a default part of Wintersmith.&lt;/p&gt;
+</description>
+    </item>
     <item>
       <title>Jekyll Plugins in Github Pages</title>
       <link>http://marcocarag.com/2013/05/22/jekyll-plugins-in-github-pages/</link>
