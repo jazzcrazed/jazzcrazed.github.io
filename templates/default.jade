@@ -3,8 +3,10 @@ block vars
   - var bodyclass = null;
   if typeof(page) !== "undefined"
     - var description = page.hasMore? env.helpers.facebookifyDescription(page.intro) : locals.description
+    - var ogPath = page.url
   else
     - var description = locals.description
+    - var ogPath = null
 
 html(class="no-js", lang="en")
   head
@@ -21,7 +23,7 @@ html(class="no-js", lang="en")
       if locals.environment !== "development"
         meta(property="fb:app_id", content="127177063996357")
         meta(property="og:type", content="article")
-        meta(property="og:url", content="http://marcocarag.com" + page.url)
+        meta(property="og:url", content="http://marcocarag.com" + ogPath)
         meta(property="og:site_name", content="MarcoCarag.com")
         meta(property="og:title", content=title)
         meta(property="og:description", content=description)
