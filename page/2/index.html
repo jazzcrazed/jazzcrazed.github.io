@@ -24,6 +24,75 @@
     </header>
     <div role="main" class="clearfix">
       <div class="postPreview">
+        <h1><a href="/2013/05/10/problem-with-css-viewport-units-for-width/" class="deeplyEngravedType">Problem with <span class="caps">CSS</span> viewport units for&nbsp;width?</a></h1>
+        <div class="postCopy"><p>
+  Getting some unexpected behavior when using viewport units (<code>vw</code>,
+  <code>vh</code>, <code>vmin</code>, and <code>vmax</code>) to size width in
+  Webkit&nbsp;browsers:
+</p>
+
+<blockquote class="big quotation">
+  When elements have a fixed width set in a viewport unit, their parents no
+  longer contain them properly in Webkit browsers.
+</blockquote>
+
+<p>
+  Open the following in Chrome (tried version 26 stable, and 29 Canary) or
+  Safari 6, and compare to Firefox (tried in version&nbsp;20):
+</p>
+
+<p><pre class="codepen" data-height="300" data-type="result" data-href="oABEh" data-user="jazzcrazed" data-safe="true"><code></code><a href="http://codepen.io/jazzcrazed/pen/oABEh">Check out this Pen!</a></pre></p>
+<script async src="http://codepen.io/assets/embed/ei.js"></script>
+
+<p>Here&rsquo;s a screenshot of what that looks like in Chrome&nbsp;26:</p>
+
+<figure class="fullWidth">
+  <div class="curledShadow">
+    <img src="/images/css-viewport-unit-width-chrome.png" alt="Elements not containing their children properly when children have widths set in viewport units in Chrome">
+  </div>
+</figure>
+
+<p>Here&rsquo;s the same thing in Firefox&nbsp;20:</p>
+
+<figure class="fullWidth">
+  <div class="curledShadow">
+    <img src="/images/css-viewport-unit-width-ff.png" alt="Elements containing their children properly when children have widths set in viewport units in Firefox">
+  </div>
+</figure>
+
+<p>
+  What I&rsquo;d expect is the Firefox case, where the dark green parent element
+  properly stretches to fit the width of its content (in this case, the child
+  elements with fixed viewport-unit&nbsp;widths).
+</p>
+
+<p>
+  What do you think? A real bug? Certainly, one of them is wrong, and I&rsquo;m
+  pretty sure it&rsquo;s Webkit, since the behavior with other types of units
+  (<code>px</code>, <code>em</code>, <code>rem</code>, etc.) is like the Firefox
+  screenshot. I&rsquo;ll have to check it out in <span class="caps">IE10</span>, which supports viewport
+  units as well, <a href="http://caniuse.com/viewport-units">according to
+    Can I Use</a>.
+</p>
+
+<p>
+  Additionally, it looks like there&rsquo;s weirdness in the height, considering
+  the lime green box in the Firefox screenshot is so much taller. Probably a
+  difference in what each browser is considering the viewport. I&rsquo;ll
+  investigate that&nbsp;further.
+</p>
+
+        </div>
+              <div class="postMeta">On
+                <time datetime="2013-05-10T13:07:00.000Z"><strong>Friday, May 10, 2013</strong> at <strong>09:07 am</strong>
+                </time>in
+                <ul class="tags">
+                  <li><a href="/tag/css/1/">css</a></li>
+                  <li><a href="/tag/development/1/">development</a></li>
+                </ul>
+              </div>
+      </div>
+      <div class="postPreview">
         <h1><a href="/2013/05/09/redesigned-ish/" class="deeplyEngravedType">Redesigned-ish</a></h1>
         <div class="postCopy"><figure class="fullWidth">          <div class="curledShadow"><a href="https://plus.google.com/photos/101625155591132408533/albums/5728262585017161025/5875222084587044594"><img src="https://lh4.googleusercontent.com/-FR2Fvmap1UY/UYj7W5BXPvI/AAAAAAAAM9I/bXAMqwck1Vk/w1131-h848-no/P3107827.jpg?align=fullWidth" alt="Tools on the floor of our unfinished apartment in Astoria."></a></div><figcaption>Tools on the floor of our unfinished apartment in Astoria.</figcaption></figure>
 <p>Been having the itch since the beginning of the year to make some changes to
@@ -98,35 +167,6 @@ in me. Here are a few faves; take a look if you haven&rsquo;t&nbsp;already.</p>
                 <ul class="tags">
                   <li><a href="/tag/svg/1/">svg</a></li>
                   <li><a href="/tag/current%20events/1/">current events</a></li>
-                </ul>
-              </div>
-      </div>
-      <div class="postPreview">
-        <h1><a href="/2013/01/15/self-hack-take-any-train-at-23rd-street-and-8th-avenue/" class="deeplyEngravedType">Self Hack: Take any train at 23<span class="ord">rd</span> Street and 8<span class="ord">th</span>&nbsp;Avenue</a></h1>
-        <div class="postCopy"><figure class="fullWidth">          <div class="curledShadow"><a href="https://plus.google.com/photos/101625155591132408533/albums/5728262585017161025/5833818331065712946"><img src="https://lh3.googleusercontent.com/-fqXhMSLbto8/UPXi3PtVgTI/AAAAAAAALcA/rjeYY-KgEHM/s1438/P1068094_1.jpg?align=fullWidth" alt="Platform for the C or E trains at 23<span class="ord">rd</span> Street and 8<span class="ord">th</span> Avenue, Manhattan"></a></div><figcaption>Platform for the C or E trains at 23<span class="ord">rd</span> Street and 8<span class="ord">th</span> Avenue, Manhattan</figcaption></figure>
-<p>
-  One of my New Year&rsquo;s Resolutions (really, the only one with a specific
-  action) is to write a blog post at least once a week. The idea is that
-  I&rsquo;ll get better at writing with frequency. As you can tell, I&rsquo;m
-  already behind, but here&rsquo;s to catching&nbsp;up!
-</p>
-
-<p>
-  Part of fulfilling my quantity-for-better-quality strategy means smaller,
-  sillier posts (as if my prior posts bore any heft) like this one, in which I
-  simply write a tip to myself whenever I find myself on the local-only
-  downtown platform of the 23<span class="ord">rd</span> Street and 8<span class="ord">th</span> Avenue subway&nbsp;stop.
-</p>
-
-<p></p>
-          <div class="centeredLink"><a href="/2013/01/15/self-hack-take-any-train-at-23rd-street-and-8th-avenue/">Continue reading</a></div>
-        </div>
-              <div class="postMeta">On
-                <time datetime="2013-01-15T23:13:00.000Z"><strong>Tuesday, January 15, 2013</strong> at <strong>06:13 pm</strong>
-                </time>in
-                <ul class="tags">
-                  <li><a href="/tag/nyc/1/">nyc</a></li>
-                  <li><a href="/tag/self%20hacks/1/">self hacks</a></li>
                 </ul>
               </div>
       </div>

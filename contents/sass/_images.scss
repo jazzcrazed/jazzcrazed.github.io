@@ -13,6 +13,12 @@ $curledShadowColor: rgba(0, 0, 0, .7);
 }
 
 .postCopy img { max-width: 100%; }
+%fullWidthImage {
+  float: none;
+  margin: 0 0 .7em;
+  max-width: 100%;
+  text-align: center;
+}
 
 figure,
 .postImage {
@@ -32,9 +38,12 @@ figure,
   }
 
   &.fullWidth {
-    float: none;
-    margin: 0 0 .7em;
-    max-width: 100%;
+    @extend %fullWidthImage;
+  }
+
+  &.centered {
+    @extend %fullWidthImage;
+    margin: 0 auto .7em;
     text-align: center;
   }
 

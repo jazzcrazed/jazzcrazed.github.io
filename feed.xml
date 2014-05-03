@@ -5,9 +5,26 @@
     <atom:link href="http://marcocarag.com/feed.xml" rel="self" type="application/rss+xml"></atom:link>
     <link>http://marcocarag.com</link>
     <description>Marco Carag's blog about stuff he's into.</description>
-    <pubDate>Sun, 30 Mar 2014 19:08:00 -0400</pubDate>
+    <pubDate>Sat, 03 May 2014 14:10:00 -0400</pubDate>
     <generator>Wintersmith - https://github.com/jnordberg/wintersmith</generator>
     <language>en</language>
+    <item>
+      <title>When nostalgia hurts</title>
+      <link>http://marcocarag.com/2014/05/03/when-nostalgia-hurts/</link>
+      <pubDate>Sat, 03 May 2014 14:10:00 -0400</pubDate>
+      <guid isPermaLink="true">http://marcocarag.com/2014/05/03/when-nostalgia-hurts/</guid>
+      <author></author>
+      <description>&lt;p&gt;&lt;img src=&quot;http://marcocarag.com/images/amtrak-window.jpg&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
+&lt;p&gt;I’ve always loved taking the Northeast Corridor Amtrak between Penn Station in New York and Union Station in DC. The trips always served as a capsules, cutting through slow-moving, rarely-touched industrial parks, vine-encrusted warehousing, and humble mid-century exurbs. The sheer contrast with what I’m used to from either the destination or the origin made it easy to mentally escape via the view out the window. &lt;/p&gt;
+&lt;p&gt;&lt;span class=&quot;more&quot;&gt;&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;I used to take these trains regularly, usually from the reverse perspective, as my way of going home for the holidays from college. Back then, a ticket on the Northeast Direct costed probably no more than $50 (now I was lucky to get one for $84, though on an admittedly much more comfortable train). I take it extremely rarely today, as my wife and I tend to drive down nowadays and use our car while in Virginia. But when I do, I’m back in the capsule again.&lt;/p&gt;
+&lt;p&gt;Occasionally, I see sparks of change as the radius of urban development inevitably kisses the extremes of trackside landscape — a tan and brick condo seemingly cut straight from parts on Home Depot’s shelves is surrounded by weary looking (but probably structurally much sounder) row houses, a pristine CVS gleams across the street from the century-dulled headstones of a tiny cemetery. But for now, the trip looks very much the same out the window, and it puts me in fairly the same headspace.&lt;/p&gt;
+&lt;p&gt;Though, the hue is far different this time. It’s now a &lt;em&gt;time&lt;/em&gt; capsule, woven inexorably in the context of &lt;em&gt;why&lt;/em&gt; I used to travel these tracks — to go home to my family, a staid institution in my life, not to live with my mind’s eye in a theme park capsule peering with rapt imagination for a brief few hours at human-less buildings speeding past.&lt;/p&gt;
+&lt;p&gt;And now, I’m sitting on an Amtrak, speeding as fast as meager American trackage will allow, to go home to something different but oh so painfully similar. I’m going home to celebrate my five-month-old nephew Sammy’s baptism. But to a home empty of my dad, who succumbed a month before Sammy was born to a heart attack just after putting his shoes and jacket on to pick my mom up from the Metro. It’s about all I can think of.&lt;/p&gt;
+&lt;p&gt;As we rock comfortably to a stop in Wilmington, Delaware, a smattering of Amtrak stations away from DC, I realize how much I miss those capsules; my imagination through the Amtrak window inventing ecsapes away from the realities at either end of the trip. They don’t work nearly as well anymore.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;http://marcocarag.com/images/dad-006.jpg?align=centered&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
+</description>
+    </item>
     <item>
       <title>Migrating my Blog's Content to Wintersmith</title>
       <link>http://marcocarag.com/2014/03/30/migrating-my-blog-s-content-to-wintersmith/</link>
