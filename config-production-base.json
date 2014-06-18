@@ -1,5 +1,5 @@
 {
-  "output": "./",
+  "output": "./build",
   "locals": {
     "url": "http://marcocarag.com",
     "environment": "production"

@@ -25,3 +25,9 @@ config-production.json
 
 /contents/css/*.css
 /contents/js
+
+build/
+
+env.json
+
+.awspublish-marcocarag.com
