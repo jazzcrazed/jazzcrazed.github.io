@@ -13,7 +13,7 @@
       text-align: center;
     }
 
-    &, &.fullWidth {
+    &, &.fullWidth, &.right, &.left {
       margin: {
         left: -1em;
         right: -1em;
@@ -28,6 +28,18 @@
 
   .curledShadow {
     &:after, &:before { display: none; }
+  }
+
+  .row { overflow: visible; }
+  .halfColumn {
+    &, &:last-child {
+      float: none;
+      margin: {
+        left: -1rem;
+        right: -1rem;
+      }
+      width: auto;
+    }
   }
 }
 @media only screen and (max-width: 45em) {
