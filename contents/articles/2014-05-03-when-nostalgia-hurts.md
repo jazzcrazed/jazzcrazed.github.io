@@ -6,7 +6,7 @@ tags: self-therapy, dad
 
 ![](/images/amtrak-window.jpg?align=fullWidth)
 
-I've always loved taking the Northeast Corridor Amtrak between Penn Station in New York and Union Station in DC. The trips served as a capsules, cutting through slow-moving, rarely-touched industrial parks, vine-encrusted warehousing, and humble mid-century exurbs. The sheer contrast with what I'm used to from either the destination or the origin made it easy to mentally escape via the view out the window. 
+I've always loved taking the Northeast Corridor Amtrak between Penn Station in New York and Union Station in DC. The trips served as time capsules, cutting through slow-moving, rarely-touched industrial parks, vine-encrusted warehousing, and humble mid-century exurbs. The sheer contrast with what I'm used to from either the destination or the origin made it easy to mentally escape via the view out the window. 
 
 <span class="more"></span>
 
