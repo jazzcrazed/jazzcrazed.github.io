@@ -1,7 +1,7 @@
 ---
 title: When nostalgia hurts
 date: 2014-05-03 14:10
-tags: self-therapy
+tags: self-therapy, dad
 ---
 
 ![](/images/amtrak-window.jpg?align=fullWidth)
