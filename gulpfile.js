@@ -49,6 +49,16 @@ gulp.task('cssmin', function() {
       .pipe(gulp.dest(dir));
 });
 
+gulp.task('set-preview-config', function() {
+  console.log('Creating preview config');
+  gulp.src(['./config.json', './config-preview-base.json'])
+      .pipe(extend('config-preview.json', true))
+      .pipe(gulp.dest('./'));
+
+  console.log('Setting preview config for Wintersmith\'s use');
+  wintersmith.settings.configFile = 'config-preview.json';
+});
+
 gulp.task('set-production-config', function() {
   console.log('Creating production config');
   gulp.src(['./config.json', './config-production-base.json'])
@@ -57,6 +67,13 @@ gulp.task('set-production-config', function() {
 
   console.log('Setting production config for Wintersmith\'s use');
   wintersmith.settings.configFile = 'config-production.json';
+});
+
+gulp.task('preview', ['coffee', 'compass'], function() {
+  console.log('Starting preview');
+  wintersmith.settings.configFile = 'config-preview.json';
+  console.log('Config file set to: ' + wintersmith.settings.configFile);
+  wintersmith.preview();
 });
 
 gulp.task('build-and-deploy', ['clean', 'coffee', 'uglify', 'compass', 'cssmin', 'set-production-config'], function() {
