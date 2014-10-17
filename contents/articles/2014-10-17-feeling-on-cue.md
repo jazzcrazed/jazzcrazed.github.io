@@ -18,7 +18,7 @@ I don't know what I had in the way of expectations -- probably very few of them 
 
 In the time since, I've had my moments -- some made sense, others didn't. I realize in general that I need to achieve a certain level of isolation from the world -- I'm sure meditation would be effective for controlling this were I to learn it. But the most important learning, that I *constantly* have to repeat to myself, is to ***allow*** the moments to happen, as best I can wherever and whenever I am. And maybe even more importantly for me, to allow them to *not happen* if they just aren't going to. The problem I have with *not* emoting in the way I want to is a tendency to try to force it, and instead being left with numbness. And that's worse territory to be in. Not being hard on myself and trying to force it is a skill I'm learning very slowly, but it might be the most important one to learn.
 
-Anyway, this was a bit rambling, but also satisfyingly cathartic after all. So at least I have that. Thanks for reading!
+Anyway, I don't have much more to say about this, and I've been a bit rambling anyway. But it was also satisfyingly cathartic after all. So at least I have that. Thanks for reading!
 
 Miss you, Dad. I'm grateful for the growth I've experienced in the year since you left us. I've apparently got a lot of growth left to do.
 
